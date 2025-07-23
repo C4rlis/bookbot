@@ -3,7 +3,7 @@ def count_words(txt):
     text = txt.split()
     for word in text:
         num += 1
-    print(f"{num} words found in the document")
+    return f"Found {num} total words"
 
 def count_letters(txt):
     abc = {}
@@ -13,6 +13,15 @@ def count_letters(txt):
             if letter.lower() not in abc:
                 abc[letter.lower()] = 0
             abc[letter.lower()] += 1
-    print(abc)
+    return abc
+
 def sort_dict(dic):
-    pass
+    result = []
+    for key in dic:
+        tmp = {}
+        tmp.update({"char": key, "num": dic[key]})
+        result.append(tmp)
+    result.sort(reverse=True, key=lambda item: item["num"])
+    return result
+
+    
